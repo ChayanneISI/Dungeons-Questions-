@@ -570,5 +570,13 @@ public class test implements ActionListener {
         clip.open(audioStream);
         clip.start();
     }
+     public void vida(){
+        Vida=new JPanel();
+        Vida.setBounds(660,10,280,100);
+        Vida.setBackground(Color.RED);
+        Vida.setVisible(true);
+        frame.add(Vida);
+
+    }
 
 }
