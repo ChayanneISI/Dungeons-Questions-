@@ -1,7 +1,10 @@
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public class test implements ActionListener {
@@ -15,6 +18,7 @@ public class test implements ActionListener {
     private int vidaBoss = 5;
     private final String[] respuestasFacil = {"a", "c", "c", "c", "d", "c", "b", "b", "a", "d", "a", "d", "b", "a", "d", "b", "a", "c", "b", "c", "d", "d", "d", "a", "a", "d", "c", "c", "d"};
     private int i = 0;
+    File f;
     JFrame frame = new JFrame();
     JRadioButton a;
     JRadioButton b;
@@ -28,9 +32,11 @@ public class test implements ActionListener {
     ImageIcon boss4=new ImageIcon(getClass().getResource("ChayanneF2.png"));
     ImageIcon boss5=new ImageIcon(getClass().getResource("ChayanneMuerte.png"));
     private String nombreImagen = "PrimerFondo.png";
+    Clip clip = AudioSystem.getClip();
 
 
-    test() { //Frame principal del Lore
+    test() throws LineUnavailableException, UnsupportedAudioFileException, IOException { //Frame principal del Lore
+        cancionLore();
     }
 
     public void GUI() {
@@ -99,6 +105,14 @@ public class test implements ActionListener {
         play.addActionListener(e -> DQ.setVisible(false));
         play.addActionListener(e -> displayPreguntas());
         play.addActionListener(e -> cambiarImagen());
+        play.addActionListener(e -> {
+            try {
+                clip.close();
+                primerCancion();
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         play.setFocusable(false);
         frame.add(play);
         play.setVisible(false);
@@ -431,6 +445,7 @@ public class test implements ActionListener {
         };
 
         if (i == 5) {
+            clip.stop();
             GUI();
             start.setVisible(false);
             mensaje.setText("Vaya haz logrado vencer al primero, así es, el primero de varios ¿esperabas solamente a uno? ingenuo, aun te queda un camino por recorrer suerte...");
@@ -453,9 +468,17 @@ public class test implements ActionListener {
             continuar.addActionListener(e -> continuar.setVisible(false));
             continuar.addActionListener(e -> imagen.setIcon(boss2));
             continuar.addActionListener(e -> imagen.setVisible(true));
-            vidaBoss = 10;
+            continuar.addActionListener(e -> {
+                try {
+                    segundaCancion();
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+            vidaBoss = 11;
         }
         if (i == 15) {
+            clip.stop();
             GUI();
             start.setVisible(false);
             mensaje.setText("Tras una ardua pelea percibes una melodía detrás de la puerta, tu cuerpo siente escalofríos y tu respiración se agita por el aura que emana del cuarto, al entrar te encuentras con la encarnación del mismisimo diablo");
@@ -478,7 +501,14 @@ public class test implements ActionListener {
             continuar.addActionListener(e -> continuar.setVisible(false));
             continuar.addActionListener(e -> imagen.setIcon(boss3));
             continuar.addActionListener(e -> imagen.setVisible(true));
-            vidaBoss = 10;
+            continuar.addActionListener(e -> {
+                try {
+                    terceraCancion();
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+            vidaBoss = 16;
         }
         if(i ==20){
             imagen.setIcon(boss4);
@@ -500,6 +530,7 @@ public class test implements ActionListener {
     }
     public void cerrar(){
         GUI();
+        clip.stop();
         start.setVisible(false);
         mensaje.setText("Ganaste perra");
         continuar = new JButton("EXIT");
@@ -512,6 +543,32 @@ public class test implements ActionListener {
         d.setVisible(false);
         imagen.setVisible(false);
         continuar.addActionListener(e -> System.exit(0));
+    }
+    void cancionLore() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        f = new File("GOTOpening.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
+        clip.open(audioStream);
+        clip.start();
+    }
+    void primerCancion() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        f = new File("Gwyn.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
+        clip.open(audioStream);
+        clip.start();
+    }
+    void segundaCancion() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        f = new File("AbyssWatchers.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
+        clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+    }
+    void terceraCancion() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        f = new File("Vordt.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(f);
+        clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
     }
 
 }
