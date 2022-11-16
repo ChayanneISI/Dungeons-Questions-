@@ -9,6 +9,7 @@ import java.util.Objects;
 
 public class test implements ActionListener {
     private JTextArea mensaje;
+    private JPanel Vida;
     private JButton start;
     private JLabel DQ;
     private JButton play;
@@ -105,6 +106,7 @@ public class test implements ActionListener {
         play.addActionListener(e -> DQ.setVisible(false));
         play.addActionListener(e -> displayPreguntas());
         play.addActionListener(e -> cambiarImagen());
+        play.addActionListener(e -> vida());
         play.addActionListener(e -> {
             try {
                 clip.close();
@@ -188,6 +190,7 @@ public class test implements ActionListener {
                 i++;
                 pregunta.setText(añadirFacil(i));
                 vidaBoss--;
+                Vida.setBounds(660,20,((vidaBoss*270)/5),60);
             } else {
                 vidaPlayer--;
                 if (vidaPlayer == 0) {
@@ -204,7 +207,8 @@ public class test implements ActionListener {
             if ((respuestasFacil[i].compareTo("b")) == 0) {
                 i++;
                 pregunta.setText(añadirFacil(i));
-                vidaBoss--;
+                Vida.setBounds(660,20,((vidaBoss*270)/5),60);
+                vida();
             } else {
                 vidaPlayer--;
                 if (vidaPlayer == 0) {
@@ -222,6 +226,7 @@ public class test implements ActionListener {
                 i++;
                 pregunta.setText(añadirFacil(i));
                 vidaBoss--;
+                Vida.setBounds(660,20,((vidaBoss*270)/5),60);
             } else {
                 vidaPlayer--;
                 if (vidaPlayer == 0) {
@@ -240,6 +245,7 @@ public class test implements ActionListener {
                     i++;
                     pregunta.setText(añadirFacil(i));
                     vidaBoss--;
+                    Vida.setBounds(660,20,((vidaBoss*270)/5),60);
                 } else {
                     vidaPlayer--;
                     if (vidaPlayer == 0) {
@@ -570,13 +576,12 @@ public class test implements ActionListener {
         clip.open(audioStream);
         clip.start();
     }
-     public void vida(){
+    public void vida(){
         Vida=new JPanel();
-        Vida.setBounds(660,10,280,100);
+        Vida.setBounds(660,20,((vidaBoss*270)/5),60);
         Vida.setBackground(Color.RED);
         Vida.setVisible(true);
         frame.add(Vida);
 
     }
-
 }
