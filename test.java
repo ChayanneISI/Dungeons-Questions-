@@ -5,10 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
-
 public class test implements ActionListener {
     private JTextArea mensaje;
+    private int vidaBossInicial = 5;
     private JPanel Vida;
     private JButton start;
     private JLabel DQ;
@@ -16,11 +15,13 @@ public class test implements ActionListener {
     private JButton exit;
     private JTextArea pregunta;
     private int vidaPlayer = 10;
+    private int vidaPlayerInicial = 10;
     private int vidaBoss = 5;
-    private final String[] respuestasFacil = {"a", "c", "c", "c", "d", "c", "b", "b", "a", "d", "a", "d", "b", "a", "d", "b", "a", "c", "b", "c", "d", "d", "d", "a", "a", "d", "c", "c", "d"};
+    private final String[] respuestasFacil = {"a", "c", "c", "c", "d", "c", "b", "b", "a", "d", "a", "d", "b", "a", "d", "b", "a", "c", "b", "c", "d", "d", "d", "a", "a", "d", "c", "c", "c","d"};
     private int i = 0;
     File f;
     JFrame frame = new JFrame();
+    JPanel VidaJ;
     JRadioButton a;
     JRadioButton b;
     JRadioButton c;
@@ -57,7 +58,7 @@ public class test implements ActionListener {
         frame.setSize(950, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.getContentPane().setBackground(Color.BLACK);
+        frame.getContentPane().setBackground(new Color(31,32,34));
         frame.setLayout(null);
 
 
@@ -86,15 +87,11 @@ public class test implements ActionListener {
         start.addActionListener(e -> play.setVisible(true));
         start.addActionListener(e -> exit.setVisible(true));
 
-
-        DQ = new JLabel(" DUNGEONS & QUESTIONS");
-        DQ.setBounds(300, 50, 350, 100);
-        DQ.setBackground(Color.white);
-        DQ.setOpaque(true);
-        DQ.setFont(new Font("Hoefler Text", Font.PLAIN, 26));
-        DQ.setForeground(Color.BLACK);
+        ImageIcon DqIcon= new ImageIcon(getClass().getResource("DnQ.png"));
+        DQ = new JLabel();
+        DQ.setIcon(DqIcon);
+        DQ.setBounds(250, 50, 450, 152);
         DQ.setVisible(false);
-        DQ.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         frame.add(DQ);
 
         play = new JButton("PLAY");
@@ -107,6 +104,7 @@ public class test implements ActionListener {
         play.addActionListener(e -> displayPreguntas());
         play.addActionListener(e -> cambiarImagen());
         play.addActionListener(e -> vida());
+        play.addActionListener(e -> vidaPlayer());
         play.addActionListener(e -> {
             try {
                 clip.close();
@@ -186,55 +184,76 @@ public class test implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //if (Objects.equals(e.getActionCommand(), respuestasFacil[i])) {
         if (e.getSource() == a) {
-            if ((respuestasFacil[i].compareTo("a")) == 0) {
-                i++;
-                pregunta.setText(añadirFacil(i));
-                vidaBoss--;
-                Vida.setBounds(660,20,((vidaBoss*270)/5),60);
-            } else {
+            try{
+                if ((respuestasFacil[i].compareTo("a")) == 0) {
+                    i++;
+                    pregunta.setText(añadirFacil(i));
+                    vidaBoss--;
+                    Vida.setBounds(15,515,((vidaBoss*615)/vidaBossInicial),60);
+                } else {
+                    vidaPlayer--;
+                    VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
+                    if (vidaPlayer == 0) {
+                        JOptionPane.showMessageDialog(null, "Perdiste");
+                        System.exit(0);
+                    }
+                }
+            }catch(ArrayIndexOutOfBoundsException E){
                 vidaPlayer--;
+                VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
                 if (vidaPlayer == 0) {
                     JOptionPane.showMessageDialog(null, "Perdiste");
                     System.exit(0);
-                } else {
-                    i++;
-                    pregunta.setText(añadirFacil(i));
                 }
             }
             System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
         }
         if (e.getSource() == b) {
-            if ((respuestasFacil[i].compareTo("b")) == 0) {
-                i++;
-                pregunta.setText(añadirFacil(i));
-                Vida.setBounds(660,20,((vidaBoss*270)/5),60);
-                vida();
-            } else {
+            try{
+                if ((respuestasFacil[i].compareTo("b")) == 0) {
+                    i++;
+                    pregunta.setText(añadirFacil(i));
+                    vidaBoss--;
+                    Vida.setBounds(15,515,((vidaBoss*615)/vidaBossInicial),60);
+                } else {
+                    vidaPlayer--;
+                    VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
+                    if (vidaPlayer == 0) {
+                        JOptionPane.showMessageDialog(null, "Perdiste");
+                        System.exit(0);
+                    }
+                }
+            }catch(ArrayIndexOutOfBoundsException E){
                 vidaPlayer--;
+                VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
                 if (vidaPlayer == 0) {
                     JOptionPane.showMessageDialog(null, "Perdiste");
                     System.exit(0);
-                } else {
-                    i++;
-                    pregunta.setText(añadirFacil(i));
                 }
             }
             System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
         }
         if (e.getSource() == c) {
-            if ((respuestasFacil[i].compareTo("c")) == 0) {
-                i++;
-                pregunta.setText(añadirFacil(i));
-                vidaBoss--;
-                Vida.setBounds(660,20,((vidaBoss*270)/5),60);
-            } else {
+            try{
+                if ((respuestasFacil[i].compareTo("c")) == 0) {
+                    i++;
+                    pregunta.setText(añadirFacil(i));
+                    vidaBoss--;
+                    Vida.setBounds(15,515,((vidaBoss*615)/vidaBossInicial),60);
+                } else {
+                    vidaPlayer--;
+                    VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
+                    if (vidaPlayer == 0) {
+                        JOptionPane.showMessageDialog(null, "Perdiste");
+                        System.exit(0);
+                    }
+                }
+            }catch(ArrayIndexOutOfBoundsException E){
                 vidaPlayer--;
+                VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
                 if (vidaPlayer == 0) {
                     JOptionPane.showMessageDialog(null, "Perdiste");
                     System.exit(0);
-                } else {
-                    i++;
-                    pregunta.setText(añadirFacil(i));
                 }
             }
             System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
@@ -245,20 +264,20 @@ public class test implements ActionListener {
                     i++;
                     pregunta.setText(añadirFacil(i));
                     vidaBoss--;
-                    Vida.setBounds(660,20,((vidaBoss*270)/5),60);
+                    Vida.setBounds(15,515,((vidaBoss*615)/vidaBossInicial),60);
                 } else {
                     vidaPlayer--;
+                    VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
                     if (vidaPlayer == 0) {
                         JOptionPane.showMessageDialog(null, "Perdiste");
                         System.exit(0);
-                    } else {
-                        i++;
-                        pregunta.setText(añadirFacil(i));
                     }
                 }
                 System.out.println("Vida del jugador: " + vidaPlayer + "\nVida del boss: " + vidaBoss);
 
             }catch (ArrayIndexOutOfBoundsException E){
+                Vida.setVisible(false);
+                VidaJ.setVisible(false);
                cerrar();
             }
 
@@ -394,7 +413,7 @@ public class test implements ActionListener {
                         "a. 61 años\n" +
                         "b. 56 años\n" +
                         "c. 69 años\n" +
-                        "d. 54. años\n",
+                        "d. 54 años\n",
 
                 "22. ¿Cómo se llama el primer disco de Chayanne?\n" +
                         "a. Provocame\n" +
@@ -464,6 +483,8 @@ public class test implements ActionListener {
             c.setVisible(false);
             d.setVisible(false);
             imagen.setVisible(false);
+            Vida.setVisible(false);
+            VidaJ.setVisible(false);
             continuar.addActionListener(e -> pregunta.setVisible(true));
             continuar.addActionListener(e -> backGround());
             continuar.addActionListener(e -> mensaje.setVisible(false));
@@ -474,6 +495,8 @@ public class test implements ActionListener {
             continuar.addActionListener(e -> continuar.setVisible(false));
             continuar.addActionListener(e -> imagen.setIcon(boss2));
             continuar.addActionListener(e -> imagen.setVisible(true));
+            continuar.addActionListener(e -> Vida.setVisible(true));
+            continuar.addActionListener(e -> VidaJ.setVisible(true));
             continuar.addActionListener(e -> {
                 try {
                     segundaCancion();
@@ -482,6 +505,8 @@ public class test implements ActionListener {
                 }
             });
             vidaBoss = 11;
+            vidaBossInicial = 10;
+            Vida.setBounds(15,515,((vidaBoss*615)/vidaBossInicial),60);
         }
         if (i == 15) {
             clip.stop();
@@ -497,6 +522,8 @@ public class test implements ActionListener {
             c.setVisible(false);
             d.setVisible(false);
             imagen.setVisible(false);
+            Vida.setVisible(false);
+            VidaJ.setVisible(false);
             continuar.addActionListener(e -> pregunta.setVisible(true));
             continuar.addActionListener(e -> backGround());
             continuar.addActionListener(e -> mensaje.setVisible(false));
@@ -507,6 +534,8 @@ public class test implements ActionListener {
             continuar.addActionListener(e -> continuar.setVisible(false));
             continuar.addActionListener(e -> imagen.setIcon(boss3));
             continuar.addActionListener(e -> imagen.setVisible(true));
+            continuar.addActionListener(e -> Vida.setVisible(true));
+            continuar.addActionListener(e -> VidaJ.setVisible(true));
             continuar.addActionListener(e -> {
                 try {
                     terceraCancion();
@@ -514,7 +543,9 @@ public class test implements ActionListener {
                     throw new RuntimeException(ex);
                 }
             });
+            vidaBossInicial = 15;
             vidaBoss = 16;
+            Vida.setBounds(15,515,((vidaBoss*615)/vidaBossInicial),60);
         }
         if(i ==20){
             imagen.setIcon(boss4);
@@ -538,16 +569,28 @@ public class test implements ActionListener {
         GUI();
         clip.stop();
         start.setVisible(false);
-        mensaje.setText("Ganaste perra");
+        mensaje.setText("Haz logrado derrotar al mismisimo diablo, con ello, reuniste la magia suficiente para teletransportarte a tu mundo, despiertas en el baño del edificio 5J y todo fue sueño... resultó que todo fue por culpa de unos papa boneless podridos que tenían hongos alucinógenos");
+        JButton playAgain= new JButton("PLAY AGAIN");
+        playAgain.setBounds(300,300,200,80);
         continuar = new JButton("EXIT");
-        continuar.setBounds(300, 300, 200, 80);
+        continuar.setBounds(300, 425, 200, 80);
         frame.add(continuar);
+        frame.add(playAgain);
         pregunta.setVisible(false);
         a.setVisible(false);
         b.setVisible(false);
         c.setVisible(false);
         d.setVisible(false);
         imagen.setVisible(false);
+        playAgain.addActionListener(e ->{
+          frame.dispose();
+          frame=new JFrame();
+          GUI();
+          vidaPlayer = 10;
+          vidaBoss = 5;
+          vidaBossInicial=5;
+          i = 0;
+        });
         continuar.addActionListener(e -> System.exit(0));
     }
     void cancionLore() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
@@ -578,10 +621,16 @@ public class test implements ActionListener {
     }
     public void vida(){
         Vida=new JPanel();
-        Vida.setBounds(660,20,((vidaBoss*270)/5),60);
+        Vida.setBounds(15,515,((vidaBoss*615)/vidaBossInicial),60);
         Vida.setBackground(Color.RED);
         Vida.setVisible(true);
         frame.add(Vida);
-
+    }
+    public void vidaPlayer(){
+        VidaJ=new JPanel();
+        VidaJ.setBounds(660,20,((vidaPlayer*270)/vidaPlayerInicial),60);
+        VidaJ.setBackground(Color.RED);
+        VidaJ.setVisible(true);
+        frame.add(VidaJ);
     }
 }
