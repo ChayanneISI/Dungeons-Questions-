@@ -1,0 +1,181 @@
+1.En la película "Jojo Rabbit", el protagonista tenía un amigo imaginario, ¿quién era?
+a. Hitler
+b. El niño Jesús
+c. El conejo de la suerte
+d. Un dinosaurio morado
+a
+2. ¿Qué perdió Luke Skywalker en su pelea con Darth Vader?
+a. Su mano izquierda
+b. Su pie izquierdo
+c. Su mano derecha
+d. Su pierna izquierda
+c
+3. ¿Quién es conocido como el 'King Slayer'?
+a. Roberto Baratheon
+b. Rey Joffrey
+c. Jamie Lannister
+d. Jon Nieves
+c
+4. ¿Quién gana la pelea entre Rock Lee y Gaara en el anime de Naruto?
+a. Rock Lee
+b. Empate
+c. Gaara
+d. Interrumpen el combate
+c
+5. ¿Cuál es el anime más largo hasta la fecha?
+a. Doraemon
+b. One Piece
+c. Detective Conan
+d. Sazae-san
+d
+6.¿Cuántos decimales tiene el número pi π?
+a. Dos
+b. Cien
+c. Infinitos
+d. Mil
+c
+7.¿En qué periodo de la prehistoria fue descubierto el fuego?
+a. Neolítico
+b. Paleolítico
+c. Renacimiento
+d. Edad media
+b
+8. ¿Cuál es el mayor archipiélago de la Tierra?
+a. Filipinas
+b. Indonesia
+c. Bahamas
+d. Finlandia
+b
+9. ¿En qué océano queda Madagascar?
+a. Océano Índico
+b. Océano Antártico
+c. Océano Ártico
+d. Océano Atlántico
+a
+10. ¿Qué animal gluglutea?
+a. El pato
+b. La guacamaya
+c. La cacatúa
+d. El pavo
+d
+11. ¿Dónde se originaron los números arábigos?
+a. India
+b. Grecia
+c. Persia
+d. Arabia
+a
+12. ¿En qué siglo el continente europeo fue devastado por la peste bubónica?
+a. En el siglo X
+b. En el siglo XII
+c. En el siglo XIII
+d. En el siglo XIV
+d
+13. El Sol está compuesto principalmente por:
+a. Luz y energía
+b. Hidrógeno y helio
+c. Asteroides y cometas
+d. Hierro y níquel
+b
+14. La moneda oficial de Japón es:
+a. Yen
+b. Yuan
+c. Yin
+d. Yun
+a
+15. ¿Cuánto tiempo tarda la luz del Sol en llegar a la Tierra?
+a. 12 minutos
+b. 1 día
+c. 12 horas
+d. 8 minutos
+d
+16. ¿Cuál es el nombre real de “Chayanne”?
+a. Enrique Martín Morales.
+b. Elmer Figueroa Arce.
+c. Pablo Moreno de Alborán Ferrándiz.
+d. Philippus Aureolus Theophrastus Bombastus Paracelsus.
+b
+17. ¿Cuánto mide Chayanne?
+a. 1.88 m
+b. 1.37 m
+c. 1.67 m
+d. 1.91 m
+a
+18. ¿En qué serie de televisión estadounidense está basado el nombre de Chayanne?
+a. El Fugitivo
+b. Adam-12
+c. Cheyenne.
+d. Basic Black
+c
+19. ¿Quién le dio su nombre artístico?
+a. Guzmán Gerardo Alfonso Sánchez Schmitz.
+b. Su madre.
+c. Su primo.
+d. Su Manager.
+b
+20. ¿Cuántos álbumes ha lanzado?
+a. 15.
+b. 19.
+c. 22.
+d. 23.
+c
+21. ¿Cuántos años tiene Chayanne?
+a. 61 años
+b. 56 años
+c. 69 años
+d. 54. años
+d
+22. ¿Cómo se llama el primer disco de Chayanne?
+a. Provocame
+b. Atado a tu amor
+c. De piel a piel
+d. Chayanne es mi nombre
+d
+23. ¿De qué país es Chayanne?
+a. México.
+b. Costa rica.
+c. Colombia.
+d. Puerto Rico.
+d
+24. ¿Cuál de las siguientes sentencias declara una variable entera y define su valor inicial?
+a. int sumaTotal = 0;
+b. int suma total = 0;
+c. int sumaTotal;
+d. int suma.total = 0.0;
+a
+25. ¿Cuál de las siguientes afirmaciones es verdadera?
+a. El código fuente de programas en Java se compila y genera código intermedio (bytecode).
+b. El código fuente de Java es igual al código de máquina.
+c. El código fuente de Java se interpreta en tiempo de ejecución.
+d. El código fuente de Java se almacena en un archivo .class
+a
+26.Esta estructura de repetición ejecuta las instrucciones al menos una vez.
+a. switch
+b. while
+c. for
+d. do...while
+d
+27.Dado el siguiente segmento de código: public class C { public int a; public String c; } Si x es un objeto de la clase C ¿Cuál de las siguientes sentencias es valida?
+a. String s = x.String(c);
+b. String s = c(x);
+c. String s = x.c;
+d. String (s) = String(c).x
+c
+28. ¿Cuál es el resultado de evaluar la expresión 2.0 + 3.0 + "4.0" ?
+a. “9.0"
+b. “54.0"
+c. “5.04.0"
+d. 9.0
+c
+29. ¿Cuál de las siguientes instrucciones es incorrecta?
+a. double d = 99.99;
+b. String s = "999.99";
+c. char c = "9";
+d. int j = 9999;
+c
+30. ¿Cuál es el resultado de evaluar la siguiente expresión en Java 3 *(5 / 2 - 6)?
+a. 10.5
+b. -12.0
+c. 1.5
+d. -12
+d
+      
